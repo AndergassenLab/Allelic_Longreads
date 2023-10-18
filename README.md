@@ -17,11 +17,7 @@ For further details refer to [pbbioconda](https://github.com/PacificBiosciences/
 ## Alignment
 The flnc reads are aligned using the PacBio wrapper for minimap2:
 
-`$ pbmm2 align reference.fa flnc.bam aligned.bam --sort -j 4 -J 2`
-
-Alternatively, minimap2 can be used directly with:
-
-`$ minimap2`
+`$ pbmm2 align ref.fa flnc.bam aligned.bam --sort -j 4 -J 2`
 
 ## Allele-specific Analysis
 For more details on the WhatsHap tool, see the [documentation](https://whatshap.readthedocs.io/en/latest/index.html).
