@@ -1,0 +1,25 @@
+  #########################################################
+  ###                 GENERAL PARAMETERS                ###
+  #########################################################
+
+	# pipe_location
+	# path to the location of the pipeline folder
+pipe_location="~/longread_ASE"
+	
+	# The reference has been copied to the input folder just in case
+ref="~/longread_ASE/input/GRCm38.primary_assembly.genome.fa"
+	
+	# The annotation has been copied to the input folder just in case
+annotation="~/longread_ASE/input/annotation.gtf"
+
+	# Run create_vcf.sh in the helper_scripts folder
+	# This script requires the pipe_location (the same as above) and the SNP file.
+	# Currently a snp file is provided in the input folder, for Bl6xCAST
+vcf="~/longread_ASE/input/snps.vcf.gz"
+	
+	# Prefix of output files
+name="brain"
+
+	#optional values 
+	#aligned files (for debug purposes) default: ${input}"/flnc.aligned.bam"
+aligned=
