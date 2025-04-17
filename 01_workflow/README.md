@@ -1,4 +1,4 @@
-# longreadASE-workflow
+# Allele-specific Long reads
 Workflow for allele-specific analysis in long-read data from PacBio
 
 ## ISO-seq
