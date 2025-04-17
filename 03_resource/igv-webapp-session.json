@@ -1,0 +1,70 @@
+{
+	"version": "3.2.5",
+	"showSampleNames": false,
+	"reference": {
+		"id": "mm10",
+		"name": "Mouse (GRCm38/mm10)",
+		"fastaURL": "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/mm10/mm10.fa",
+		"indexURL": "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/mm10/mm10.fa.fai",
+		"cytobandURL": "https://s3.amazonaws.com/igv.broadinstitute.org/annotations/mm10/cytoBandIdeo.txt.gz",
+		"twoBitURL": "https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.2bit",
+		"chromSizesURL": "https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes",
+		"order": 1000000,
+		"chromosomeOrder": "chr1,chr2,chr3,chr4,chr5,chr6,chr7,chr8,chr9,chr10,chr11,chr12,chr13,chr14,chr15,chr16,chr17,chr18,chr19,chrX,chrY"
+	},
+	"locus": "chr10:77,620,320-77,647,990",
+	"roi": [],
+	"tracks": [
+		{
+			"type": "sequence",
+			"order": -9007199254740991
+		},
+		{
+			"name": "Refseq Curated",
+			"format": "refgene",
+			"url": "https://hgdownload.soe.ucsc.edu/goldenPath/mm10/database/ncbiRefSeqCurated.txt.gz",
+			"indexed": false,
+			"order": -4,
+			"type": "annotation",
+			"height": 70
+		},
+		{
+			"url": "https://dl.dropboxusercontent.com/scl/fi/q4guqtox5uzy97y7r5jvs/BL6xCAST_exons.bed.gz?rlkey=vuyypttoztdo9qt68lg1m72ql",
+			"indexURL": "https://dl.dropboxusercontent.com/scl/fi/l9w4kx8x7jlh94e14mdcz/BL6xCAST_exons.bed.gz.tbi?rlkey=6psrbzkdf4wbauzupctlkf5ns",
+			"order": -3,
+			"name": "Exonic SNPs BL6xCAST",
+			"visibilityWindow": "32191424",
+			"format": "bed",
+			"type": "annotation",
+			"height": 70
+		},
+		{
+			"url": "https://dl.dropboxusercontent.com/scl/fi/q5i31wk0y9xprtdcatckx/brain_maternal_BL6.bam?rlkey=t4qpfkzhich01c69ddn9031gt",
+			"indexURL": "https://dl.dropboxusercontent.com/scl/fi/momqsaz754hi83nylruc4/brain_maternal_BL6.bam.bai?rlkey=mf6sbje2edc4t7do3bo8hqkjg",
+			"order": -2,
+			"name": "Brain - maternal BL6",
+			"color": "rgb(190,34,47)",
+			"altColor": "rgb(null)",
+			"format": "bam",
+			"type": "alignment",
+			"colorBy": "none",
+			"height": 500,
+			"showInsertions": false,
+			"showMismatches": false
+		},
+		{
+			"url": "https://dl.dropboxusercontent.com/scl/fi/rstprjte1ljzgm3my1l9q/brain_paternal_CAST.bam?rlkey=ltirlwlajqbxtoh1xtisdyx9v",
+			"indexURL": "https://dl.dropboxusercontent.com/scl/fi/ziif95x85cx9ohti1odp9/brain_paternal_CAST.bam.bai?rlkey=rjynx1vc8ishdz3mva0li23m2",
+			"order": 1,
+			"name": "Brain - paternal CAST",
+			"color": "rgb(40,61,144)",
+			"altColor": "rgb(null)",
+			"format": "bam",
+			"type": "alignment",
+			"colorBy": "none",
+			"height": 500,
+			"showInsertions": false,
+			"showMismatches": false
+		}
+	]
+}

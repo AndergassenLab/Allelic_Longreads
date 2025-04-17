@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="mm10" locus="chr10:77620319-77647990" nextAutoscaleGroup="3" version="8">
+    <Resources>
+        <Resource index="https://dl.dropboxusercontent.com/scl/fi/momqsaz754hi83nylruc4/brain_maternal_BL6.bam.bai?rlkey=mf6sbje2edc4t7do3bo8hqkjg" path="https://dl.dropboxusercontent.com/scl/fi/q5i31wk0y9xprtdcatckx/brain_maternal_BL6.bam?rlkey=t4qpfkzhich01c69ddn9031gt" type="bam"/>
+        <Resource index="https://dl.dropboxusercontent.com/scl/fi/ziif95x85cx9ohti1odp9/brain_paternal_CAST.bam.bai?rlkey=rjynx1vc8ishdz3mva0li23m2" path="https://dl.dropboxusercontent.com/scl/fi/rstprjte1ljzgm3my1l9q/brain_paternal_CAST.bam?rlkey=ltirlwlajqbxtoh1xtisdyx9v" type="bam"/>
+        <Resource index="https://dl.dropboxusercontent.com/scl/fi/l9w4kx8x7jlh94e14mdcz/BL6xCAST_exons.bed.gz.tbi?rlkey=6psrbzkdf4wbauzupctlkf5ns" path="https://dl.dropboxusercontent.com/scl/fi/q4guqtox5uzy97y7r5jvs/BL6xCAST_exons.bed.gz?rlkey=vuyypttoztdo9qt68lg1m72ql" type="bed"/>
+    </Resources>
+    <Panel height="415" name="DataPanel" width="1133">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="+" shouldShowTranslation="false" visible="true"/>
+        <Track attributeKey="Brain - maternal BL6" clazz="org.broad.igv.sam.AlignmentTrack" color="190,34,47" displayMode="SQUISHED" experimentType="THIRD_GEN" fontSize="10" id="https://dl.dropboxusercontent.com/scl/fi/q5i31wk0y9xprtdcatckx/brain_maternal_BL6.bam?rlkey=t4qpfkzhich01c69ddn9031gt" name="Brain - maternal BL6" visible="true">
+            <RenderOptions groupByOption="NONE" linkByTag="READNAME" linkedReads="true"/>
+        </Track>
+        <Track attributeKey="Brain - paternal CAST" clazz="org.broad.igv.sam.AlignmentTrack" color="40,61,144" displayMode="SQUISHED" experimentType="THIRD_GEN" fontSize="10" id="https://dl.dropboxusercontent.com/scl/fi/rstprjte1ljzgm3my1l9q/brain_paternal_CAST.bam?rlkey=ltirlwlajqbxtoh1xtisdyx9v" name="Brain - paternal CAST" visible="true">
+            <RenderOptions groupByOption="NONE" linkByTag="READNAME" linkedReads="true"/>
+        </Track>
+        <Track attributeKey="brain_paternal_CAST.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="https://dl.dropboxusercontent.com/scl/fi/rstprjte1ljzgm3my1l9q/brain_paternal_CAST.bam?rlkey=ltirlwlajqbxtoh1xtisdyx9v_coverage" name="brain_paternal_CAST.bam Coverage" snpThreshold="0.2" visible="false">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="60.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="brain_paternal_CAST.bam Junctions" autoScale="false" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="https://dl.dropboxusercontent.com/scl/fi/rstprjte1ljzgm3my1l9q/brain_paternal_CAST.bam?rlkey=ltirlwlajqbxtoh1xtisdyx9v_junctions" maxdepth="50" name="brain_paternal_CAST.bam Junctions" visible="false"/>
+        <Track attributeKey="brain_maternal_BL6.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="https://dl.dropboxusercontent.com/scl/fi/q5i31wk0y9xprtdcatckx/brain_maternal_BL6.bam?rlkey=t4qpfkzhich01c69ddn9031gt_coverage" name="brain_maternal_BL6.bam Coverage" snpThreshold="0.2" visible="false">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="60.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="brain_maternal_BL6.bam Junctions" autoScale="false" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="https://dl.dropboxusercontent.com/scl/fi/q5i31wk0y9xprtdcatckx/brain_maternal_BL6.bam?rlkey=t4qpfkzhich01c69ddn9031gt_junctions" maxdepth="50" name="brain_maternal_BL6.bam Junctions" visible="false"/>
+    </Panel>
+    <Panel height="1895" name="Panel1709624862153" width="1133">
+        <Track attributeKey="BL6xCAST_exons.bed.gz" clazz="org.broad.igv.track.FeatureTrack" featureVisibilityWindow="32191424" fontSize="10" groupByStrand="false" id="https://dl.dropboxusercontent.com/scl/fi/q4guqtox5uzy97y7r5jvs/BL6xCAST_exons.bed.gz?rlkey=vuyypttoztdo9qt68lg1m72ql" name="Exonic SNPs BL6xCAST" visible="true"/>
+        <Track attributeKey="Refseq Genes" clazz="org.broad.igv.track.FeatureTrack" displayMode="EXPANDED" fontSize="10" groupByStrand="false" id="https://s3.amazonaws.com/igv.org.genomes/mm10/ncbiRefSeq.sorted.txt.gz" name="Refseq Genes" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.7164948453608248"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
