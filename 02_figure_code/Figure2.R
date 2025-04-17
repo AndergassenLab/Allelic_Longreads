@@ -90,10 +90,9 @@ create_venn_diagram <- function(n_long, n_short, n_overlap,
   return(plot)
 }
 
-# init ---------------------------------
-load.packages(c("gtools", "ggpubr", "pheatmap", "RColorBrewer", 
-                "dplyr", "tidyverse", "gridExtra", "ggrepel", 
-                "readxl", "VennDiagram", "scales"))
+# init ----------------------------------------------------------------
+load.packages(c("gtools", "ggpubr", "RColorBrewer", "dplyr", 
+                "tidyverse", "gridExtra", "ggrepel", "readxl", "scales"))
 
 # config --------------------------------------------------------------
 input <- "/Users/lisonlemoine/Documents/GitHub/Allelic_Longreads/02_figure_code/"
@@ -126,7 +125,7 @@ all_ratios <- na.omit(all_ratios)
 
 all_ratios <- all_ratios %>% filter(chr != "chrX") %>% filter(chr != "chrY")
 
-# all overlapping autosomes table -------------------------------------------------
+# all overlapping autosomes table -------------------------------------
 autosomes <- rbind(lr_ratios  %>% 
                      filter(chr != "chrX"&chr != "chrY")  %>% 
                      mutate(read = "Long reads"),
@@ -138,10 +137,11 @@ autosomes <- rbind(lr_ratios  %>%
 # imprinted genes table -----------------------------------------------------
 imp_genes <- data.frame(name = c("Grb10", "Peg3", "Meg3", "Zdbf2", "Airn",
                                  "Impact", "Rian", "Mirg", "Ago2", "Peg13",  
-                                 "Zrsr1", "Ndn", "A330076H08Rik", "Igf2", "Kcnk9", 
-                                 "Kcnq1ot1", "Snurf", "Snrpn", "Peg10", "Sgce", 
-                                 "B230209E15Rik", "Snhg14", "Zim1", "Nap1l5", "Usp29", 
-                                 "Plagl1", "Rasgrf1", "Ipw", "A230057D06Rik"), 
+                                 "Zrsr1", "Ndn", "A330076H08Rik", "Igf2", 
+                                 "Kcnk9", "Kcnq1ot1", "Snurf", "Snrpn", 
+                                 "Peg10", "Sgce", "B230209E15Rik", "Snhg14", 
+                                 "Zim1", "Nap1l5", "Usp29", "Plagl1", 
+                                 "Rasgrf1", "Ipw", "A230057D06Rik"), 
                         type = c("PAT", "PAT", "MAT", "PAT", "PAT",
                                  "PAT", "MAT", "MAT", "MAT", "PAT",
                                  "PAT", "PAT", "PAT", "MAT", "MAT", 
