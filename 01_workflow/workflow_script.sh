@@ -1,11 +1,4 @@
 #!/bin/bash
-#SBATCH -J longreadASE
-#SBATCH --clusters=serial
-#SBATCH --partition=serial_std
-#SBATCH --mem=56000M
-#SBATCH --time=5:00:00
-#SBATCH --export=none
-#SBATCH --output=./slurm-%j.out
 ##****************************##
 ##    ASE longread workflow   ##
 ##****************************##
