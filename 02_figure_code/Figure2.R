@@ -92,7 +92,8 @@ create_venn_diagram <- function(n_long, n_short, n_overlap,
 
 # init ----------------------------------------------------------------
 load.packages(c("gtools", "ggpubr", "RColorBrewer", "dplyr", 
-                "tidyverse", "gridExtra", "ggrepel", "readxl", "scales"))
+                "tidyverse", "gridExtra", "ggrepel", "readxl", 
+                "scales", "VennDiagram"))
 
 # config --------------------------------------------------------------
 input <- "/Users/lisonlemoine/Documents/GitHub/Allelic_Longreads/02_figure_code/"
@@ -134,12 +135,13 @@ autosomes <- rbind(lr_ratios  %>%
                      filter(chr != "chrX"&chr != "chrY")
 )
 
-# imprinted genes table -----------------------------------------------------
-imp_genes <- data.frame(name = c("Grb10", "Peg3", "Meg3", "Zdbf2", "Airn",
-                                 "Impact", "Rian", "Mirg", "Ago2", "Peg13",  
-                                 "Zrsr1", "Ndn", "A330076H08Rik", "Igf2", 
-                                 "Kcnk9", "Kcnq1ot1", "Snurf", "Snrpn", 
-                                 "Peg10", "Sgce", "B230209E15Rik", "Snhg14", 
+# imprinted genes table -----------------------------------------------
+imp_genes <- data.frame(name = c("Grb10", "Peg3", "Meg3", "Zdbf2", 
+                                 "Airn", "Impact", "Rian", "Mirg", 
+                                 "Ago2", "Peg13", "Zrsr1", "Ndn", 
+                                 "A330076H08Rik", "Igf2", "Kcnk9", 
+                                 "Kcnq1ot1", "Snurf", "Snrpn", "Peg10", 
+                                 "Sgce", "B230209E15Rik", "Snhg14", 
                                  "Zim1", "Nap1l5", "Usp29", "Plagl1", 
                                  "Rasgrf1", "Ipw", "A230057D06Rik"), 
                         type = c("PAT", "PAT", "MAT", "PAT", "PAT",
@@ -160,7 +162,15 @@ figure2a_right <- create_venn_diagram(
   length(filter(autosomes, read == "Short reads")$name), 
   length(intersect(filter(autosomes, read == "Long reads")$name,
                    filter(autosomes, read == "Short reads")$name)), 
-  TRUE, function(x){0.21})
+  TRUE, function(x){0.21}
+)
+
+figure2a_right_raw <- venn.diagram(
+  x = list(filter(autosomes, read=="Long reads")$name, 
+           filter(autosomes, read=="Short reads")$name),
+  category.names = c("Long reads" , "Short reads"),
+  filename = NULL
+)
 
 # Figure 2b Violin ----------------------------------------------------
 figure2b <- ggplot(
@@ -228,7 +238,6 @@ overlap <- autosomes %>%
     values_from = c(total_reads, allelic_ratio, type)
   )
 
-
 # Figure 2c Pies  -----------------------------------------------------
 stat.all <- data.frame(count = c(nrow(overlap %>% 
                                         filter(type_long != "BAE")),
@@ -272,28 +281,64 @@ figure2c <- ggplot(
 over_ase <- subset(overlap, type_long != "BAE"|type_short != "BAE")
 over_bae <- subset(overlap, type_long == "BAE"|type_short == "BAE")
 
-D_left <- create_venn_diagram(
+d_left <- create_venn_diagram(
   length(filter(over_bae, type_long == "BAE")$name), 
   length(filter(over_bae, type_short == "BAE")$name), 
   length(intersect(filter(over_bae, type_long == "BAE")$name, 
                    filter(over_bae, type_short == "BAE")$name)), 
-  FALSE, function(x){log10(1 + 9 * (1 - x / 100))})
+  FALSE, function(x){log10(1 + 9 * (1 - x / 100))}
+)
 
-D_right <- create_venn_diagram(
+d_right <- create_venn_diagram(
   length(filter(over_ase, type_long != "BAE")$name), 
   length(filter(over_ase, type_short != "BAE")$name), 
   length(intersect(filter(over_ase, type_long != "BAE")$name, 
                    filter(over_ase, type_short != "BAE")$name)), 
-  FALSE, function(x){(1 - x / 100)})
+  FALSE, function(x){(1 - x / 100)}
+)
 
-figure2d_left <- arrangeGrob(D_left, top = textGrob("Biallelic", gp = gpar(fontsize = 16, fontface = "bold")))
-figure2d_right <- arrangeGrob(D_right, top = textGrob("Allele-specific", gp = gpar(fontsize = 16, fontface = "bold")))
+figure2d_left <- arrangeGrob(d_left, top = 
+                             textGrob("Biallelic", 
+                                      gp = gpar(fontsize = 16, 
+                                                fontface = "bold")))
+figure2d_right <- arrangeGrob(d_right, top = 
+                              textGrob("Allele-specific", 
+                                       gp = gpar(fontsize = 16, 
+                                                 fontface = "bold")))
+
+figure2d_left_raw <- venn.diagram(
+  x = list(filter(over_bae, type_long == "BAE")$name, 
+           filter(over_bae, type_short == "BAE")$name),
+  category.names = c("Long reads" , "Short reads"),
+  filename = NULL
+)
+
+figure2d_right_raw <- venn.diagram(
+  x = list(filter(over_ase, type_long != "BAE")$name, 
+           filter(over_ase, type_short != "BAE")$name),
+  category.names = c("Long reads" , "Short reads"),
+  filename = NULL
+)
+
+figure2d_left_raw <- arrangeGrob(
+  figure2d_left_raw, top = textGrob("Biallelic", 
+                                    gp = gpar(fontsize = 16, 
+                                              fontface = "bold"))
+)
+
+figure2d_right_raw <- arrangeGrob(
+  figure2d_right_raw, top = textGrob("Allele-specific",
+                                     gp = gpar(fontsize = 16,
+                                               fontface = "bold"))
+)
 
 # Figure 2e Scatter ---------------------------------------------------
 corr.norm_all <- cor.test(all_ratios$allelic_ratio_lr, 
-                          all_ratios$allelic_ratio_sr, method = "pearson")
+                          all_ratios$allelic_ratio_sr, 
+                          method = "pearson")
 corr.norm_imp <- cor.test(imp_ratios$allelic_ratio_lr, 
-                          imp_ratios$allelic_ratio_sr, method = "pearson")
+                          imp_ratios$allelic_ratio_sr, 
+                          method = "pearson")
 
 goi <- c("Gnas", "Ube2g2", "Malat1")
 
@@ -373,7 +418,7 @@ grid.text("B", x = 0.02, y = 0.98, just = c("left", "top"),
 figure2c
 grid.text("C", x = 0.02, y = 0.98, just = c("left", "top"),
           gp = gpar(fontsize = 12, fontface = "bold"))
-
+                     
 grid.arrange(figure2d_left, figure2d_right, ncol = 2)
 grid.text("D", x = 0.02, y = 0.98, just = c("left", "top"),
           gp = gpar(fontsize = 12, fontface = "bold"))
@@ -383,7 +428,19 @@ grid.text("E", x = 0.02, y = 0.98, just = c("left", "top"),
           gp = gpar(fontsize = 12, fontface = "bold"))
 
 dev.off()
+                     
+pdf(file="Figure2_raw.pdf", width=10, height=5)
+grid.draw(figure2a_right_raw)
+grid.text("A raw", x = 0.02, y = 0.98, just = c("left", "top"),
+          gp = gpar(fontsize = 12, fontface = "bold"))
 
+grid.arrange(figure2d_left_raw, figure2d_right_raw, ncol = 2)
+grid.text("D raw", x = 0.02, y = 0.98, just = c("left", "top"),
+          gp = gpar(fontsize = 12, fontface = "bold"))
+             
+dev.off()
+                     
+                
 
 # R session -----------------------------------------------------------
 devtools::session_info()
