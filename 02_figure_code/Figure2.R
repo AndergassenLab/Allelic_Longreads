@@ -96,7 +96,7 @@ load.packages(c("gtools", "ggpubr", "RColorBrewer", "dplyr",
                 "scales", "VennDiagram"))
 
 # config --------------------------------------------------------------
-input <- "/Users/lisonlemoine/Documents/GitHub/Allelic_Longreads/02_figure_code/"
+input <- "~/Documents/GitHub/Allelic_Longreads/02_figure_code/"
 
 PAT <- "#283D90" # "#40509E"
 MAT <- "#BE222F" # "#CE3730"
