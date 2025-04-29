@@ -306,14 +306,14 @@ figure2d_right <- arrangeGrob(d_right, top =
                                        gp = gpar(fontsize = 16, 
                                                  fontface = "bold")))
 
-figure2d_left_raw <- venn.diagram(
+d_left_raw <- venn.diagram(
   x = list(filter(over_bae, type_long == "BAE")$name, 
            filter(over_bae, type_short == "BAE")$name),
   category.names = c("Long reads" , "Short reads"),
   filename = NULL
 )
 
-figure2d_right_raw <- venn.diagram(
+d_right_raw <- venn.diagram(
   x = list(filter(over_ase, type_long != "BAE")$name, 
            filter(over_ase, type_short != "BAE")$name),
   category.names = c("Long reads" , "Short reads"),
@@ -321,15 +321,17 @@ figure2d_right_raw <- venn.diagram(
 )
 
 figure2d_left_raw <- arrangeGrob(
-  figure2d_left_raw, top = textGrob("Biallelic", 
-                                    gp = gpar(fontsize = 16, 
-                                              fontface = "bold"))
+  grobs = list(d_left_raw[[1]]), 
+  top = textGrob("Biallelic", 
+                 gp = gpar(fontsize = 16, 
+                           fontface = "bold"))
 )
 
 figure2d_right_raw <- arrangeGrob(
-  figure2d_right_raw, top = textGrob("Allele-specific",
-                                     gp = gpar(fontsize = 16,
-                                               fontface = "bold"))
+  grobs = list(d_right_raw[[1]]), 
+  top = textGrob("Biallelic", 
+                 gp = gpar(fontsize = 16, 
+                           fontface = "bold"))
 )
 
 # Figure 2e Scatter ---------------------------------------------------
