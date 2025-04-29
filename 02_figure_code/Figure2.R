@@ -321,15 +321,15 @@ d_right_raw <- venn.diagram(
 )
 
 figure2d_left_raw <- arrangeGrob(
-  grobs = list(d_left_raw[[1]]), 
+  grobTree(d_left_raw), 
   top = textGrob("Biallelic", 
                  gp = gpar(fontsize = 16, 
                            fontface = "bold"))
 )
 
 figure2d_right_raw <- arrangeGrob(
-  grobs = list(d_right_raw[[1]]), 
-  top = textGrob("Biallelic", 
+  grobTree(d_right_raw), 
+  top = textGrob("Allele-specific", 
                  gp = gpar(fontsize = 16, 
                            fontface = "bold"))
 )
