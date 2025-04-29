@@ -176,7 +176,7 @@ figure2a_right_raw <- venn.diagram(
 figure2b <- ggplot(
   autosomes, 
   aes(x = read, y = allelic_ratio, fill = read)) +
-  geom_violin(trim = FALSE, linewidth = 0.3) +
+  geom_violin(width = 0.9, scale = "width", trim = FALSE, linewidth = 0.3) +
   scale_fill_manual(values = c(LONG_COL, SHORT_COL)) +
   
   geom_boxplot(
