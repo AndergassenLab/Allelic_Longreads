@@ -1,5 +1,5 @@
 #**********************************************************************
-#* Figure 2 script
+#* Figure 3 script
 #* Project: allelic_longreads
 #* Author: Lison Lemoine
 #* Date: 04.2025
